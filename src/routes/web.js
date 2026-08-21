@@ -1,6 +1,8 @@
 //Imorta o módulo Router do express
 const router = require('express').Router()
 
+const BookController = require('../controllers/BookController')
+
 //Rotas
 // GET   /books             => Listar todos os livros
 // GET   /books/new         => Exibir o form
@@ -17,5 +19,7 @@ router.get('/books/new', (req, res) => {
     res.render('pages/book_form')
   })
 
+router.post('/books/new', BookController.store);
+
 //Exporta as rotas para outro arquivo
-mobile.exports = router
+module.exports = router
