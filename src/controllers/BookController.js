@@ -6,6 +6,7 @@ async function store(req, res){
     const title = req.body.title
     const author = req.body.author
     const resume = req.body.resume
+    const cover = "https://img.magnific.com/premium-psd/green-book-cover-mockup_1139106-7538.jpg?semt=ais_hybrid&w=740&q=80"
 
     //Solicitar a inserção no BD
     const msg = await Book.save({title, author, resume})
