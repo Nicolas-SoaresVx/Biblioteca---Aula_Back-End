@@ -26,6 +26,10 @@
     <section class="container mt-3">
       <div class="row">
 
+        <% books.forEach(book => { %>
+          <%- include('components/card_book') %>
+        <% }) %>
+
       </div> <!-- fim da row -->
     </section>
 

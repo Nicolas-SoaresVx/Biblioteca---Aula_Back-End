@@ -17,9 +17,28 @@ function save(book) {
     })
     .catch(erro => {
         return {
-            type: "error", msg: "Erro" + erro}
+            type: "error", msg: "Erro: " + erro}
     })
 }//fim do salvar
 
+
+/**
+ * Função responsável por buscar todos os livros cadastrados no banco de dados.
+ *
+ * Realiza uma consulta na tabela "books", selecionando todos os campos
+ * e organizando os livros em ordem alfabética pelo título.
+ *
+ * @returns {Promise<Array|Object>} Retorna uma lista de livros ordenados
+ * ou um objeto contendo informações sobre o erro ocorrido.
+ */
+function all(){
+    return db.select('*').from('books')
+    .orderBy('title','ASC')
+    .then(books => { return books })
+    .catch(erro => {
+        return { type: "error", msg: "Erro: " + erro}
+    })
+} //fim do all
+
 //Exportando a função save
-module.exports = { save } 
+module.exports = { save, all } 
