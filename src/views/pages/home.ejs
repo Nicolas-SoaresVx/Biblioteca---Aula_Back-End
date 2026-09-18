@@ -27,7 +27,7 @@
       <div class="row">
 
         <% books.forEach(book => { %>
-          <%- include('components/card_book') %>
+          <%- include('../components/card_book.ejs', { book }) %>
         <% }) %>
 
       </div> <!-- fim da row -->
